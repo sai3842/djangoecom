@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/Sandles.css'%}">
+      
+
+    </head>
+    <body>
+     <div class="navbar">
+        <p class="logo">
+            My site
+        </p>
+        <h3 class="username">
+            {{username}}
+        </h3>
+     </div>
+   <center>
+     <h2> Men’s <span>Sandles</span> Collections</h2>
+   </center>
+     <div class="container">
+        <div> <img src="{% static 'images/asian.png' %}"> </div>
+        <div> <img src="{% static 'images/bata.png' %}"> </div>
+        <div> <img src="{% static 'images/campus.png' %}"> </div>
+        <div> <img src="{% static 'images/puma_2.png' %}"> </div>
+        <div> <img src="{% static 'images/spax.png' %}"> </div>
+     </div>
+     
+
+      
+     
+   
+    </body>
+</html>

@@ -1,0 +1,99 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+     <link rel="stylesheet" href="{% static 'css/new.css' %}">
+     
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">MySite
+      
+    </div>
+    <ul class="nav-links" id="navLinks">
+       <!-- <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+         -->
+        {{msg}}
+        
+    </ul>
+   
+    <div class="menu-toggle" id="menuToggle">&#9776;</div>
+</nav>
+
+
+ <header class="header">
+          <h1>Step into <span>comfort</span>, walk out in <span>confidence</span>.</h1>
+       </header>
+
+
+       
+       <h1 class="cat">"Our Collection  👠👟 " </h1>
+
+
+       <div class="name">
+        <h2> <i class="fa-solid fa-person"></i> Men</h2>
+        <h2><i class="fa-solid fa-person-dress"></i> Women</h2>
+
+       </div>
+
+        <div class="main">
+            <h2 class="m">Men</h2>
+              <div class="men">
+                
+                <div class="men-shoes">
+                  <a href="{% url 'mshoes' %} ">  <img src="{% static 'images/men_shoes.jpg'%}"></a>
+                    <h3>shoes</h3>
+                </div>
+                
+                <div class="men-sandles">
+                  <a href="{% url 'msandles'%}">  <img src="{% static 'images/men_sandles_1.jpg'%}"> </a>
+                    <h3 >Sandles</h3>
+                </div>
+          
+            </div>   
+            
+            <h2 class="w">Women</h2>
+            <div class="women">
+                <div class="women-shoes">
+                    
+                  <a href="{% url 'wshoes'%}">    <img src="{% static 'images/women_shoes.jpg'%}"></a>
+                    <h3>shoes</h3>
+                </div>
+                <div class="women-sandles">
+                    <a href="{% url 'wsandles'%}"><img src="{% static 'images/women_sandles.jpg'%}"> </a>
+                    <h3 class="ws">Sandles</h3>
+                </div>
+            </div>
+            
+        </div>
+
+         <footer class="footer">
+    <p>© 2025 Classic Footwear. Crafted for timeless journeys.</p>
+  </footer>
+
+
+  <script>
+
+
+   const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+        menuToggle.textContent = navLinks.classList.contains("show") ? "✖" : "☰";
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a2ad58;
+            /*background: linear-gradient(135deg, #6a11cb, #2575fc);*/
+            margin: 0;
+            padding: 0;
+        }
+
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .form {
+            background-color: #BAC095;
+
+            border-radius: 12px;
+            padding: 30px 25px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .form h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form input[type="text"],input[type='password'] {
+            width: 90%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form input[type="text"],input[type='password']:focus {
+            border-color: #BAC095;
+            box-shadow: 0 0 5px rgba(68, 156, 119, 0.5);
+        }
+
+        .form input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #b1ae21c2;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .form input[type="submit"]:hover {
+            background-color: #8a881fc2;
+        }
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+           
+            background-color:  #727015c2;;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        a:hover {
+           
+             background-color:#b1ae21c2;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 500px) {
+            .form {
+                padding: 20px;
+            }
+        }
+    </style>
+
+    </head>
+    <body>
+        <div class="center-container">
+            <div class="form">
+                <h2> login </h2>
+                <form action="" method="post">
+                    {%csrf_token%}
+                    <input type="text" placeholder="username / email" name="username">
+                    <input type="password" placeholder="password" name="password">
+                    <input type="submit" value="login">
+                </form>
+                <a href="{% url 'sigin' %}">Create New Account</a>
+                 <a href="{% url 'forgrt'%}">Forget Password</a>
+            </div>
+
+        </div>
+    </body>
+</html>

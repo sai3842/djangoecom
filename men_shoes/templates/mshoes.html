@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+       <link rel="stylesheet" href="{% static 'css/mshoes.css'%}">
+
+    </head>
+    <body>
+     <div class="navbar">
+        <p class="logo">
+            My site
+        </p>
+        <h3 class="username">
+            {{username}}
+        </h3>
+     </div>
+    <center>
+     <h2>Men’s <span>Shoes</span>  Collections</h2>
+    </center>
+     <div class="container">
+        <div> <img src="{% static 'images/nike_1.png' %}"> </div>
+        <div> <img src="{% static 'images/puma_2.png' %}"> </div>
+        <div> <img src="{% static 'images/reebok_1.png' %}"> </div>
+        <div> <img src="{% static 'images/redtape.png' %}"> </div>
+        <div> <img src="{% static 'images/adidas_1.png' %}"> </div>
+     </div>
+
+     <div class="main">
+                {% for i,b in data %}
+                    {% if i.image1 %}
+                        <div class="images">
+                           <a href="{% url 'show' i.id %}"> 
+                        <img src="{{ i.image1.url }}" alt="Image 1"  >
+                        <p class="product">{{ b.product }}</p>
+                         <p>{{ b.price}}</p>
+                         <button>Add to Cart</button>
+                          </a>
+
+                        </div>
+                        
+                    {% endif %}
+               {% endfor %}
+      </div> 
+
+    
+    </body>
+</html>

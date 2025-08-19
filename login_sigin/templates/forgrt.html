@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email OTP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a2ad58;
+            /*background: linear-gradient(135deg, #6a11cb, #2575fc);*/
+            margin: 0;
+            padding: 0;
+        }
+
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .form {
+            background-color: #BAC095;
+
+            border-radius: 12px;
+            padding: 30px 25px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .form h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form input[type="text"] {
+            width: 90%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form input[type="text"]:focus {
+            border-color: #BAC095;
+            box-shadow: 0 0 5px rgba(68, 156, 119, 0.5);
+        }
+
+        .form input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #b1ae21c2;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .form input[type="submit"]:hover {
+            background-color: #8a881fc2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 500px) {
+            .form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="center-container">
+        <div class="form">
+            <h2>Enter Your Email</h2>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="email" placeholder="Enter your email">
+                <input type="submit" value="Send OTP">
+            </form>
+            <p style="color:red;">{{ data }}</p>
+        </div>
+    </div>
+</body>
+</html>
