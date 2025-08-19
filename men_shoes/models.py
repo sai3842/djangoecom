@@ -21,10 +21,10 @@ class product_db(models.Model):
     size_6=models.CharField(max_length=20,null=True)
     size_7=models.CharField(max_length=20,null=True)
     
-    image1=models.ImageField(upload_to='images/',null=True,blank=True)
-    image2=models.ImageField(upload_to='images/',null=True,blank=True)
-    image3=models.ImageField(upload_to='images/',null=True,blank=True)
-    image4=models.ImageField(upload_to='images/',null=True,blank=True)
+    image1=models.ImageField(upload_to='products/',null=True,blank=True)
+    image2=models.ImageField(upload_to='products/',null=True,blank=True)
+    image3=models.ImageField(upload_to='products/',null=True,blank=True)
+    image4=models.ImageField(upload_to='products/',null=True,blank=True)
 
     material=models.CharField(max_length=100,null=True)
     Heel_type=models.CharField(max_length=100,null=True)
