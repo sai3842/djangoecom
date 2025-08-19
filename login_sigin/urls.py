@@ -4,6 +4,7 @@ from . import views
 urlpatterns=[
    
     path("", views.login_view, name="home"),
+     path('create-superuser/', views.create_superuser),
     path('otp/',views.valadite,name='otp'),
     path('sigin/',views.sig,name='sigin'),
     path('login/',views.login_view,name='login'),

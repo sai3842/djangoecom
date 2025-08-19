@@ -11,6 +11,7 @@ from django.conf import settings
 from .forms import usermodelform
 import random
 import time
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -118,6 +119,12 @@ def sig(request):
         
              
     return render(request,'sigup.html',{'errors':'hi'})
+
+def create_superuser(request):
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser("admin", "admin@example.com", "Password123")
+        return HttpResponse("Superuser created")
+    return HttpResponse("Superuser already exists")
 
 
 def login_view(request):
