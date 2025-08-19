@@ -63,8 +63,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 ROOT_URLCONF = 'ecom.urls'
 
@@ -88,7 +88,6 @@ WSGI_APPLICATION = 'ecom.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
 
 
 # Password validation
@@ -118,6 +117,13 @@ DATABASES = {
             ssl_require=True
         )
     }
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": "dfbfnkje4",    # 👈 your cloud name
+    "API_KEY": "336732587433127",
+    "API_SECRET": "1Fp3AC2wDWkzAU5pnpPwI9O5Dgo",
+}
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
@@ -133,9 +139,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",   # your app-level static folder
+]
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
 MEDIA_URL = '/media/'
