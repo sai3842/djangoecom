@@ -89,16 +89,6 @@ WSGI_APPLICATION = 'ecom.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ecom',
-        'USER': 'root',
-        'PASSWORD':'sai3842',
-        'HOST':'localhost',
-        'PORT':3306,
-    }
-}
 
 
 # Password validation
@@ -118,8 +108,16 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+import os
+import dj_database_url
 
-
+DATABASES = {
+        "default": dj_database_url.config(
+            default=os.environ.get("DATABASE_URL"),
+            conn_max_age=600,
+            ssl_require=True
+        )
+    }
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
