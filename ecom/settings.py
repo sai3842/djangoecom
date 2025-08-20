@@ -9,6 +9,9 @@ from pathlib import Path
 import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # SECURITY
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback-secret-key')
@@ -88,11 +91,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # CLOUDINARY STORAGE
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
-CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": os.environ.get("CLOUDINARY_CLOUD_NAME"),
-    "API_KEY": os.environ.get("CLOUDINARY_API_KEY"),
-    "API_SECRET": os.environ.get("CLOUDINARY_API_SECRET"),
-}
 
 # INTERNATIONALIZATION
 LANGUAGE_CODE = 'en-us'
@@ -120,3 +118,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # --- NOTE ---
 # No MEDIA_URL or MEDIA_ROOT needed because Cloudinary handles media
+
+cloudinary.config(
+    cloud_name="dfbfnkje4",
+    api_key="336732587433127",
+    api_secret="1Fp3AC2wDWkzAU5pnpPwI9O5Dgo",
+)
